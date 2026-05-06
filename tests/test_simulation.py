@@ -1,6 +1,6 @@
 import numpy as np
 
-from inventory_optimizer.simulation import bootstrap_ci, simulate_inventory
+from inventory_optimizer.simulation import bootstrap_ci, sensitivity_analysis, simulate_inventory
 
 
 def test_simulation_metrics() -> None:
@@ -18,3 +18,8 @@ def test_bootstrap_ci_order() -> None:
 
     lo, hi = bootstrap_ci(f, d, n_bootstrap=200)
     assert lo <= hi
+
+
+def test_sensitivity_analysis_sorted_desc() -> None:
+    ranked = sensitivity_analysis(10.0, {"a": 9.0, "b": 13.0, "c": 10.5})
+    assert ranked[0][1] >= ranked[1][1] >= ranked[2][1]
