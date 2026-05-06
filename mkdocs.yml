@@ -1,0 +1,7 @@
+site_name: inventory-optimizer
+theme:
+  name: material
+nav:
+  - Home: docs/index.md
+  - Installation: docs/installation.md
+  - Publishing: docs/publishing.md
